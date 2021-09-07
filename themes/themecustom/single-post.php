@@ -1,23 +1,9 @@
 <?php get_header(); ?>
- <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <div class="container-fluid">
- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-<?php wp_nav_menu([
-    'menu' => 'header',
-    'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0',
-    'container_class' => 'collapse navbar-collapse',
-]); ?>
-
-</div>
-</nav> -->
 <div class="container">
 <?php if (have_posts()) { ?>
 
     <div class="row">
-
     <?php
     while (have_posts()) {
         the_post(); ?>
@@ -30,11 +16,7 @@
             <div class="card-body">
                 <h5 class="card-title"><?php the_title(); ?></h5>
                 <p class="card-text">
-                <?php if (has_excerpt()) {
-            the_excerpt();
-        } else {
-            the_content();
-        } ?>
+                <?php the_content(); ?>
                 </p>
                 <!-- <small><?php the_category(); ?></small> -->
                 <?php if (has_category()) {
@@ -48,7 +30,7 @@
                 // var_dump($category->name);
             }
         } ?>
-                <a class="btn btn-primary" href="<?php the_permalink(); ?>">Voir plus</a>
+                <!-- <a class="btn btn-primary" href="<?php the_permalink(); ?>">Voir plus</a> -->
             </div>
         </div>
     </div>
@@ -56,9 +38,7 @@
     } ?>
     </div>
 <?php
-} else { ?>
-    <h2>Aucun article pour le moment</h2>
-<?php }
+}
 ?>
 </div>
 <?php get_footer(); ?>
