@@ -27,7 +27,10 @@ add_theme_support('post-thumbnails');
 // add_theme_support('menus');
 
 // enregistrer le menu dans wp
-register_nav_menu('header', 'Menu Principal');
+register_nav_menus([
+    'header' => 'Menu Principal',
+    'menu footer' => 'Menu footer',
+]);
 
 // ajouter le script et la stylesheet Bootstrap à notre thème
 add_action('wp_enqueue_scripts', 'customtheme_enqueue_scripts');
