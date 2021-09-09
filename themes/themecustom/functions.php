@@ -45,6 +45,30 @@ function customtheme_setup()
     add_image_size('banner', 1200, 300, true);
 }
 
+// on génrère note pagination bootstrap
+function customtheme_generate_pagination()
+{
+    // on récupère les liens de pagination sous forme de tableau
+    $pages = paginate_links([
+        'type' => 'array',
+    ]);
+    // on affiche le markup html
+    echo '<nav aria-label="Page navigation example"><ul class="pagination">';
+
+    // on boucle sur les pages
+    foreach ($pages as $page) {
+        // on recherche si cuurent est présent dans la chaûne de caractères
+        $active = strpos($page, 'current') ? 'active' : '';
+
+        echo '<li class="page-item '.$active.'">';
+        // on remplace dans la chaîne de carcatères la classe wordpress page-numbers par page-link de bootstrap
+        echo str_replace('page-numbers', 'page-link', $page);
+        echo '</li>';
+    }
+
+    echo '</ul></nav>';
+}
+
 // ajout des features supportées par le thème
 add_action('after_setup_theme', 'customtheme_setup');
 // ajouter le script et la stylesheet Bootstrap à notre thème

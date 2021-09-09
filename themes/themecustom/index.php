@@ -14,9 +14,13 @@
 
 </div>
 </nav> -->
-
 <div class="container">
 <?php if (have_posts()) { ?>
+
+    <div class="row">
+        <div class="col"><?php customtheme_generate_pagination(); ?>
+</div>
+    </div>
 
     <div class="row">
 
@@ -51,6 +55,7 @@
             }
         } ?>
                 <a class="btn btn-primary" href="<?php the_permalink(); ?>">Voir plus</a>
+
             </div>
         </div>
     </div>
@@ -62,5 +67,7 @@
     <h2>Aucun article pour le moment</h2>
 <?php }
 ?>
+
 </div>
+
 <?php get_footer(); ?>

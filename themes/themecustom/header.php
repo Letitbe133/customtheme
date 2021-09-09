@@ -20,5 +20,7 @@
     'container_class' => 'collapse navbar-collapse',
 ]); ?>
 
+<!-- affichage formulaire de recherche -->
+<?php get_search_form(); ?>
 </div>
 </nav>
