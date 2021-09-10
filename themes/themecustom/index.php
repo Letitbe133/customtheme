@@ -1,10 +1,7 @@
-<?php get_header(); ?>
- <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <div class="container-fluid">
- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<!-- c'est le template de base pour afficher la liste de vos articles -->
+<!-- vous pouvez aussi utiliser un template home.php qui est plus spécifique et sera utilisé par Wordpress à la place d' index.php -->
 
+<?php get_header(); ?>
 
 <?php wp_nav_menu([
     'menu' => 'header',
@@ -19,7 +16,7 @@
 
     <div class="row">
         <div class="col"><?php customtheme_generate_pagination(); ?>
-</div>
+    </div>
     </div>
 
     <div class="row">
@@ -42,15 +39,17 @@
             the_content();
         } ?>
                 </p>
-                <!-- <small><?php the_category(); ?></small> -->
                 <?php if (has_category()) {
             $categories = get_the_category();
             foreach ($categories as $category) {
+                // pour debug
                 // var_dump(get_category_link($category));
-
                 // exit;
+
                 $cat_link = get_category_link($category);
                 echo "<a href='{$cat_link}'>{$category->name}</a>";
+
+                // pour debug
                 // var_dump($category->name);
             }
         } ?>

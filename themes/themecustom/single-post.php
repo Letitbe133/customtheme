@@ -1,3 +1,5 @@
+<!-- ce template s'applique à l'affichage d'un post unique -->
+
 <?php get_header(); ?>
 
 <div class="container">
@@ -18,19 +20,20 @@
                 <p class="card-text">
                 <?php the_content(); ?>
                 </p>
-                <!-- <small><?php the_category(); ?></small> -->
                 <?php if (has_category()) {
             $categories = get_the_category();
             foreach ($categories as $category) {
+                // pour debug
                 // var_dump(get_category_link($category));
-
                 // exit;
+
                 $cat_link = get_category_link($category);
                 echo "<a href='{$cat_link}'>{$category->name}</a>";
+
+                // pour debug
                 // var_dump($category->name);
             }
         } ?>
-                <!-- <a class="btn btn-primary" href="<?php the_permalink(); ?>">Voir plus</a> -->
             </div>
         </div>
     </div>

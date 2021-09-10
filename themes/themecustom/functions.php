@@ -1,13 +1,21 @@
+<!-- contient toutes les fonctions nécessaires au fonctionnement du thème -->
+
 <?php
 
 function customtheme_enqueue_scripts()
 {
+    // on intègre la librairie css Bootstrap pour pouvoir l'utiliser dans le thème
     wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css');
 
     // ajout custom css
     wp_enqueue_style('custom-css', get_stylesheet_uri(), ['bootstrap-css']);
 
+    // ajout d'une autre feuille de style en fonction de vos besoins
+    wp_enqueue_style('theme_css', get_template_directory_uri().'/css/theme.css', ['custom-css']);
+
+    // ajout du js Bootstrap
     wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js', [], false, true);
+
     // ajout du custom js
     wp_enqueue_script('custom-js', get_template_directory_uri().'/js/main.js', ['bootstrap-js'], false, true);
 }
@@ -31,8 +39,9 @@ function customtheme_setup()
 {
     // add thumbnail support to theme
     add_theme_support('post-thumbnails');
-    // add menus support
-    // add_theme_support('menus');
+
+    // add title-tag support to theme
+    add_theme_support('title-tag');
 
     // enregistrer le menu dans wp
     register_nav_menus([
@@ -41,11 +50,13 @@ function customtheme_setup()
     ]);
 
     // ajout tailles d'images perso
+    // penser à régénérer les plugins après avoir créé une ou des tailles personnalisées
+    // voir le plugin "Regenerate Thumbnails"
     add_image_size('icon', 64, 64, ['x_crop_position' => 'center', 'y_crop_position' => 'center']);
-    add_image_size('banner', 1200, 300, true);
+    add_image_size('banner', 1900, 250, true);
 }
 
-// on génrère note pagination bootstrap
+// on génrère note pagination bootstrap custom
 function customtheme_generate_pagination()
 {
     // on récupère les liens de pagination sous forme de tableau

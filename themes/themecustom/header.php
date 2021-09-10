@@ -1,3 +1,6 @@
+<!-- header spécifique à votre thème -->
+<!-- remplace le fichier header.php par défaut de Wordpress -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +24,8 @@
 ]); ?>
 
 <!-- affichage formulaire de recherche -->
+<!-- va en priorité rechercher un fichier searchform.php dans le thème et l'afficher -->
+<!-- si le fichier n'existe pas, affichera le formulaire de recherche par défaut Wordpress -->
 <?php get_search_form(); ?>
 </div>
 </nav>
