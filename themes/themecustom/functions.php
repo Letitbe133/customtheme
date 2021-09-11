@@ -1,6 +1,6 @@
-<!-- contient toutes les fonctions nécessaires au fonctionnement du thème -->
 
 <?php
+// contient toutes les fonctions nécessaires au fonctionnement du thème
 
 function customtheme_enqueue_scripts()
 {
